@@ -1,0 +1,43 @@
+<div class="home-container justify-content-center">
+  <h2 class="mb-4">Search for a Team by ID</h2>
+  <p>Try TeamID: 212</p>
+  <div class="input-group">
+    <div class="form-outline">
+      <input id="search-focus" type="search" id="form1" [(ngModel)]="teamId" class="form-control" />
+      <label class="form-label" for="form1"></label>
+    </div>
+    <button class="btn btn-primary" (click)="searchTeam()">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+</div>
+
+
+<div class="container mt-4" *ngIf="teamInfo">
+  <h3 class="mb-4">Team Information</h3>
+  <div class="d-flex justify-content-center">
+    <div class="card" style="width: 18rem;"> <!-- Defina o tamanho do card da equipe conforme necessário -->
+      <img [src]="teamInfo.logo" alt="{{teamInfo.name}}" class="card-img-top" />
+      <div class="card-body">
+        <h5 class="card-title">Team Name: {{teamInfo.name}}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-4" *ngIf="players">
+  <h3 class="mb-4">Players</h3>
+  <div class="row">
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2" *ngFor="let player of players"> <!-- Define o número de colunas por linha conforme necessário -->
+      <div class="card mb-4">
+        <img [src]="player.photo" alt="{{player.name}}" class="card-img-top" />
+        <div class="card-body">
+          <h5 class="card-title">Name: {{player.name}}</h5>
+          <p class="card-text">Age: {{player.age}}</p>
+          <p class="card-text">Number: {{player.number}}</p>
+          <p class="card-text">Position: {{player.position}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
